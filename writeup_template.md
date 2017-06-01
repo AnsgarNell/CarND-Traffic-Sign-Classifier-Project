@@ -62,11 +62,8 @@ Here is an example of a traffic sign image before and after normalizing with the
 My final model consisted of the following layers:
 
 | Layer         		|     Description								| 
-
 |:---------------------:|:---------------------------------------------:|
- 
 | Input         		| 32x32x1 Grayscale image   					|
- 
 | Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 
 | RELU					|												|
