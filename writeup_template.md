@@ -12,7 +12,7 @@
 [image6]: ./web_images/550634383.jpg "Traffic Sign 3"
 [image7]: ./web_images/adelanto.jpg "Traffic Sign 4"
 [image8]: ./web_images/ceda.jpg "Traffic Sign 5"
-[image9]: ./web_images/CLNL1_obr4.jpg "Traffic Sign 6"
+[image9]: ./web_images/obra.jpg "Traffic Sign 6"
 [image10]: ./web_images/vaca.jpg "Traffic Sign 7"
 [image11]: ./web_images/paso_prohibido.jpg "Traffic Sign 8"
 
