@@ -61,36 +61,66 @@ Here is an example of a traffic sign image before and after normalizing with the
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| Layer         		|     Description								| 
+
+|:---------------------:|:---------------------------------------------:|
+ 
+| Input         		| 32x32x1 Grayscale image   					|
+ 
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
+
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6	 				|
+
+| Convolution 5x5	    | 1x1 stride, valid padding, outputs 10x10x16   |
+
+| RELU					|												|
+
+| Max pooling	      	| 2x2 stride,  outputs 5x5x16	 				|
+
+| Flatten				| input 5x5x16, output 400      				|
+
+| Fully connected		| input 400, output 120     					|
+
+| RELU					|												|
+
+| Dropout				| Rate 70%										|
+
+| Fully connected		| input 120, output 84	     					|
+
+| RELU					|												|
+
+| Dropout				| Rate 70%										|
+
  
 
 
 ####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model, I used 20 epochs as tests with higher values didn't show big increases in accuracy and do to the time consuming it implies without a CUDA ready GPU.
+
+For the batch size I used the default 128 value.
+
+The selected optimizer and other parameters where taken with the same values as in the LeNet Lab example.
 
 ####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 0.996
+* validation set accuracy of 0.938
+* test set accuracy of 0.929
 
 If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
+
+* What was the first architecture that was tried and why was it chosen? The first architecture was the same as in the LeNet example. Normalizing was done to RGB images with the (pixel_value - 128)/128 formula.
+
+
+* What were some problems with the initial architecture? Accuracy was below 0.9.
+* How was the architecture adjusted and why was it adjusted? First grayscaling was done changing the input from RGB to just one channel. Adjustments where made in the model input and x placeholder to reflect this change.  Then two dropout layers where introduced after both fully connected layers as suggested by forum mentors.
+
+* Which parameters were tuned? How were they adjusted and why? The epoch parameter was changed, beginning with 10, and ending with 20 after testing the values 50 and 30. Dropout keep probability parameter was also tested with a value of 0.5 but results where not so good.
+
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
 If a well known architecture was chosen:
@@ -109,18 +139,24 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image7] ![alt text][image8] ![alt text][image9] 
 ![alt text][image10] ![alt text][image11]
 
-The first image might be difficult to classify because ...
+The first image might be difficult to classify because the number 8 may sometimes be taken for a 5. Otherwise, different danger signs where tested and generally the results where not good, as images can be quite similar between different signs. 
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
+
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
+
+| Stop Sign      		| Stop sign   									|
+ 
 | U-turn     			| U-turn 										|
+
 | Yield					| Yield											|
+
 | 100 km/h	      		| Bumpy Road					 				|
+
 | Slippery Road			| Slippery Road      							|
 
 
