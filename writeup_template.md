@@ -13,6 +13,18 @@
 [image7]: ./web_images/ceda.jpg "Traffic Sign 4"
 [image8]: ./web_images/obra.jpg "Traffic Sign 5"
 [image9]: ./web_images/paso_prohibido.jpg "Traffic Sign 6"
+[softmax1]: ./softmax/12.png "Traffic Sign 12"
+[softmax2]: ./softmax/5.png "Traffic Sign 5"
+[softmax3]: ./softmax/9.png "Traffic Sign 9"
+[softmax4]: ./softmax/13.png "Traffic Sign 13"
+[softmax5]: ./softmax/14.png "Traffic Sign 14"
+[softmax6]: ./softmax/17.png "Traffic Sign 17"
+[feature0]: ./featureMaps/0.png "Feature Map 0"
+[feature1]: ./featureMaps/1.png "Feature Map 1"
+[feature2]: ./featureMaps/2.png "Feature Map 2"
+[feature3]: ./featureMaps/3.png "Feature Map 3"
+[feature4]: ./featureMaps/4.png "Feature Map 4"
+[feature5]: ./featureMaps/5.png "Feature Map 5"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -146,22 +158,50 @@ The model was able to correctly guess 6 of the 6 traffic signs, which gives an a
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+![alt text][softmax1]
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is very sure that this is a Priority road sign. The first choice's probability is almost 1, and the others are near to zero.
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .49         			| Priority road  								| 
-| .04     				| 80 km/h 										|
-| .07					| No passing									|
-| .41	      			| Yield							 				|
-| .24				    | Stop			     							|
-| .31				    | No entry		      							|
+![alt text][softmax2]
 
-For the second image ... 
+In this case, the system has correctly detected a speed limitation sign. It's first choice is the real one, 80 km/h. The next two options, 60 km/h and 50 km/h, are really reasonable as the numbers' shape is similar. In fact, in other training sessions this sign was not correctly classified and was confused with the 50 km/h one.
+
+![alt text][softmax3]
+
+This sign was also problematic in some sessions. Its probability isn't as high as the precedent ones, being 0.655. The next possibilities that were taken into account by the architecture were sign number 16 (Vehicles over 3.5 metric tons prohibited) and 10 (No passing for vehicles over 3.5 metric tons) which makes sense as they are similar.
+
+The next signs (and also the first, Priority road) have a particular shape which makes them very easy to classify, as can be seen in the probabilities results provided by the softmax function:
+
+![alt text][softmax4]
+![alt text][softmax5]
+![alt text][softmax6]
+
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
+This is the features map for the first case:
 
+![alt text][feature0]
+
+As it can be seen, the network based its classification in the rhombus shape of the sign, which is the most significant characteristic.
+
+![alt text][feature1]
+
+In the 80 km/h speed limit sign the most important things that we can see are the circle and the numbers, although in some images it isn't clear if the first digit is an eight or a six.
+
+![alt text][feature2]
+
+The No passing picture has again a characteristic circle, and two not very clear figures in the middle, which lead to the low probability for this sign.
+
+![alt text][feature3]
+
+In this case, we can see a Yield sign, and two different features: an inverted triangle, and also the white (or black) figure in the middle of it.
+
+![alt text][feature4]
+
+For the Stop sign we can quite clearly read the STOP letters, and we can also see it as a octagon.
+
+![alt text][feature5]
+
+Finally, the most eye-catching characteristic is the big horizontal line in the middle of the sign.
