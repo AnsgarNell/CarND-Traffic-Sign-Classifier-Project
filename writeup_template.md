@@ -9,12 +9,10 @@
 [image3]: ./writeup_images/image_normalized.png "Normalized"
 [image4]: ./web_images/80.jpg "Traffic Sign 1"
 [image5]: ./web_images/240_F_148528289_8FbyCvR8JGsP5ZBf8BszYwiVtrhjyzPx.jpg "Traffic Sign 2"
-[image6]: ./web_images/550634383.jpg "Traffic Sign 3"
-[image7]: ./web_images/adelanto.jpg "Traffic Sign 4"
-[image8]: ./web_images/ceda.jpg "Traffic Sign 5"
-[image9]: ./web_images/obra.jpg "Traffic Sign 6"
-[image10]: ./web_images/vaca.jpg "Traffic Sign 7"
-[image11]: ./web_images/paso_prohibido.jpg "Traffic Sign 8"
+[image6]: ./web_images/adelanto.jpg "Traffic Sign 3"
+[image7]: ./web_images/ceda.jpg "Traffic Sign 4"
+[image8]: ./web_images/obra.jpg "Traffic Sign 5"
+[image9]: ./web_images/paso_prohibido.jpg "Traffic Sign 6"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -109,9 +107,12 @@ If an iterative approach was chosen:
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
 If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+
+* What architecture was chosen? Lenet
+
+* Why did you believe it would be relevant to the traffic sign application? Because it was the one used in the examples and suggested to begin with.
+
+* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well? Accuracy is over 90% in all cases, being the lowest (test accuracy) 92.9% which is a quite good result.
  
 
 ###Test a Model on New Images
@@ -121,31 +122,25 @@ If a well known architecture was chosen:
 Here are five German traffic signs that I found on the web:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8] ![alt text][image9] 
-![alt text][image10] ![alt text][image11]
+![alt text][image7] ![alt text][image8] ![alt text][image9]
 
-The first image might be difficult to classify because the number 8 may sometimes be taken for a 5. Otherwise, different danger signs where tested and generally the results where not good, as images can be quite similar between different signs. 
+The first image might be difficult to classify because the number 8 may sometimes be taken for a 5 (this happened several times, but not in this training session).
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
-
-|:---------------------:|:---------------------------------------------:| 
-
-| Stop Sign      		| Stop sign   									|
- 
-| U-turn     			| U-turn 										|
-
-| Yield					| Yield											|
-
-| 100 km/h	      		| Bumpy Road					 				|
-
-| Slippery Road			| Slippery Road      							|
+|:---------------------:|:---------------------------------------------:|
+| Priority road	      	| Priority road			 						|
+| 80 km/h	      		| 80 km/h				 						|
+| No passing      		| No passing   									|
+| Yield 	      		| Yield 	   									|
+| Stop      			| Stop  										|
+| No entry				| No entry										|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 6 of the 6 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 92.9%.
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
@@ -155,12 +150,12 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
+| .49         			| Priority road  								| 
+| .04     				| 80 km/h 										|
+| .07					| No passing									|
+| .41	      			| Yield							 				|
+| .24				    | Stop			     							|
+| .31				    | No entry		      							|
 
 For the second image ... 
 
