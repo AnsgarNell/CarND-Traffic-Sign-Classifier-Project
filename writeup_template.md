@@ -36,7 +36,7 @@
 
 You're reading it! and here is a link to my [project code](https://github.com/AnsgarNell/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
-Or the final version in [HTML code](http://htmlpreview.github.io/?https://github.com/AnsgarNell/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.html "HTML code")
+Or the final version in [HTML code](http://htmlpreview.github.io/?https://github.com/AnsgarNell/CarND-Traffic-Sign-Classifier-Project/blob/master/report.html "HTML code")
 
 ### Data Set Summary & Exploration
 
