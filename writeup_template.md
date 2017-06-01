@@ -24,6 +24,8 @@
 
 You're reading it! and here is a link to my [project code](https://github.com/AnsgarNell/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
+Or the final version in [HTML code](http://htmlpreview.github.io/?https://github.com/AnsgarNell/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.html "HTML code")
+
 ### Data Set Summary & Exploration
 
 #### 1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
